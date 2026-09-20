@@ -6,7 +6,9 @@ header = '''{
   "typ": "JWT"
 }'''
 payload = '''{
-  "user": "guest",
-  "role": "admin"
+  "sub": "a",
+  "name": "a",
+  "role": "user",
+  "iat": 1787402300333
 }'''
 print(jwtBase64Encode(header)+'.'+jwtBase64Encode(payload)+'.')

